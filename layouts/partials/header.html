@@ -1,0 +1,36 @@
+<div class="header">
+    <p> 📌 {{ .Site.Params.resume.location }} {{ if .Site.Params.resume.remote }}  / 🗺️ Remote {{ end }}</p>
+    <h1>
+        {{ .Site.Params.resume.name }} <b> {{ .Site.Params.resume.lastName }} </b>
+    </h1>
+    <h4>{{ .Site.Params.resume.lead }}</h4>
+</div>
+<div class="postits">
+    <div id="contact" class="postit">
+        {{ partial "contact.html" . }}
+    </div>
+    <div id="years-of-experience" class="postit">
+        <h4>{{ .Site.Params.yearsOfExperience.Text | default "years of expirence"}}</h4>
+        <h1> {{ sub now.Year (.Site.Params.yearsOfExperience.startDate | time.AsTime).Year }}</h1>
+    </div>
+    <div id="languages" class="postit">
+        <h4>{{ .Site.Params.languages.Text | default "Foreign Languages" }}</h4>
+        {{ partial "flag.html" . }}
+        {{ range .Site.Params.languages.items }}
+            <p>{{ .lang }} <i>({{ .level }})</i></p>
+        {{ end }}
+    </div>
+</div>
+<h5 clas="skills">
+    <em>
+        {{ $skillLen := .Site.Params.skills | len}}
+        {{ range $index, $skill := .Site.Params.skills }}
+            <mark>{{ $skill }}</mark> 
+            {{ if eq (add $index 1) $skillLen}}
+            {{else}}
+            / 
+            {{ end }}
+        {{ end }}
+    </em>
+</h5>
+

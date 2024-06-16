@@ -1,0 +1,10 @@
+name = 'Sticky Notes Resume'
+license = 'MIT'
+licenselink = 'https://github.com/devintrap/sticky-notes-resume/LICENSE'
+description = 'A swift, minimalist, and responsive Hugo resume theme with sticky-note highlights for essential information.'
+homepage = 'https://github.com/devintrap/sticky-notes-resume'
+tags = ['resume', 'portfolio', "responsive", "sticky-notes", "postit"]
+features = ['postit', 'sticky-note', 'email-obsfuction', "tel-obsfuction"]
+[author]
+  name = 'devintrap'
+  homepage = 'https://devintrap.com'

@@ -1,0 +1,41 @@
+<h4>{{ .Site.Params.contact.text | default "Contact:"}}</h4>
+<p class="tel rvr">
+    {{ $parts := split (trim .Site.Params.contact.tel " ") "" }}
+    {{ $c := 0}}
+    <span>
+    {{ range $index := seq (sub (len $parts) 1) -1 0 }}
+        {{- $char := index $parts $index -}}
+        {{- $char := trim $char " " -}}
+        {{- if eq $char "+" -}}
+            {{- continue -}}
+        {{- end -}}
+        {{- if eq $c 3 -}}
+            {{ " " }}
+            </span><span>
+            {{- $c = 0 -}}
+        {{- else -}}
+            {{- $c = add $c 1 -}}
+        {{- end -}}
+        {{- $char -}}
+    {{end}}
+    </span>
+</p>
+<p class="mail rvr">
+    {{ $chars := split .Site.Params.contact.mail "" }}
+    <span id="tl">
+    {{ range $index := seq (sub (len $chars) 1) -1 0 }}
+        {{- $char := index $chars $index -}}
+        {{- if eq $char "@" -}}
+            </span><span id="ad">
+            {{- continue -}}
+        {{- end -}}
+        {{- if eq $char "." -}}
+            </span><span id="dd">
+            {{- continue -}}
+        {{- end -}}
+        {{- trim $char " " -}}
+    {{ end }}
+    </span>
+<p class="linkedin">
+    <a href="https://{{ .Site.Params.contact.linkedin }}" target="_blank">{{ .Site.Params.contact.linkedin }}</a>
+</p>
