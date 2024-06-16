@@ -20,9 +20,9 @@ Add or change hugo config
 toml:
 ```toml
 theme = ["github.com/devintrap/sticky-notes-resume"]
-...
+#{...}
 module:
-  ...
+# {...}
   imports:
   - path: github.com/devintrap/sticky-notes-resume
 ```
@@ -30,9 +30,9 @@ module:
 yml:
 ```yaml
 theme: ["github.com/devintrap/sticky-notes-resume"]
-...
+#{...}
 [module]
-  ...  
+# {...}  
   [[module.imports]]
     path = "github.com/devintrap/sticky-notes-resume"
 ```
