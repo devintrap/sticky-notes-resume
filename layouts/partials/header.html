@@ -14,7 +14,7 @@
         <h1> {{ sub now.Year (.Site.Params.yearsOfExperience.startDate | time.AsTime).Year }}</h1>
     </div>
     <div id="languages" class="postit">
-        <h4>{{ .Site.Params.languages.Text | default "Foreign Languages" }}</h4>
+        <h4>{{ .Site.Params.languages.Text | default "Language proficiency" }}</h4>
         {{ partial "flag.html" . }}
         {{ range .Site.Params.languages.items }}
             <p>{{ .lang }} <i>({{ .level }})</i></p>

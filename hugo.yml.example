@@ -1,0 +1,50 @@
+baseURL: 'https://example.org/'
+languageCode: 'en-us'
+title: 'Your Name - Resume'
+
+enableEmoji: true
+disableKinds:
+  - "taxonomy"
+  - "term"
+
+params:
+  resume:
+    name: "Your"
+    lastName: "Name"
+    location: "Warsaw, Poland"
+    remote: true
+    lead: "Go Team Lead 🚀 / Go Developer 🐹 / self-hosted Enthusiast ❤️"
+  contact:
+    tel: "+48 111 222 333"
+    mail: "your-mail@example.org"
+    linkedin: "linkedin.com/in/example"
+  yearsOfExperience:
+    text: "YEARS IN SOFTWARE DEVELOPMENT"
+    startDate: "2018-06-01T00:00:00+02:00"
+  languages:
+    text: "HUMMAN SPEECH"
+    items:
+      - lang: "Polish"
+        level: "native"
+      - lang: "English"
+        level: "C1"
+  skills:
+    - "GO"
+    - "Gin"
+    - "GORM"
+    - "Kafka"
+    - "MySql"
+    - "REST"
+    - "ZAP"
+    - "GitLab CI/CD"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+module:
+  hugoVersion:
+    extended: false
+    min: "0.116.0"
+
