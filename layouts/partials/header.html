@@ -1,9 +1,11 @@
 <div class="header">
-    <p> 📌 {{ .Site.Params.resume.location }} {{ if .Site.Params.resume.remote }}  / 🗺️ Remote {{ end }}</p>
+    <p> 📌 {{ .Site.Params.resume.location }} {{ if .Site.Params.resume.remote }}  / 🌍️ Remote {{ end }}</p>
     <h1>
         {{ .Site.Params.resume.name }} <b> {{ .Site.Params.resume.lastName }} </b>
     </h1>
     <h4>{{ .Site.Params.resume.lead }}</h4>
+    <br>
+    <h5>{{ .Site.Params.resume.aboutme }}</h5>
 </div>
 <div class="postits">
     <div id="contact" class="postit">
@@ -21,16 +23,15 @@
         {{ end }}
     </div>
 </div>
-<h5 clas="skills">
-    <em>
-        {{ $skillLen := .Site.Params.skills | len}}
-        {{ range $index, $skill := .Site.Params.skills }}
-            <mark>{{ $skill }}</mark> 
-            {{ if eq (add $index 1) $skillLen}}
-            {{else}}
-            / 
+<div class="skills">
+    {{ range $categoryIndex, $category := .Site.Params.skills }}
+    <p><b>{{ $category.category }}</b></p>
+        {{ range $skillIndex, $skill := $category.items }}
+            <mark><em>{{ $skill }}</em></mark>
+            {{ if ne $skillIndex (sub (len $category.items) 1) }}
+                /
             {{ end }}
         {{ end }}
-    </em>
-</h5>
+    {{ end }}
+</div>
 
